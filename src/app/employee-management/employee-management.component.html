@@ -1,0 +1,116 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a>Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Employee Management</li>
+  </ol>
+</nav>
+
+<div class="container-fluid employee-management">
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button mat-raised-button color="primary" (click)="openModal(employeeModal, 'add')">
+        <mat-icon class="color-white">add_box</mat-icon> Add Employee
+      </button>
+    </div>
+    <div class="col-md-12 mt-2">
+      <mat-divider></mat-divider>
+    </div>
+    <div class="col-md-12 text-center" *ngIf="employeeList?.length == 0">
+      <img
+        src="data:image/png;base64,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">
+      <p> No employee records found</p>
+    </div>
+    <div class="col-md-12 mt-2" *ngIf="employeeList?.length > 0">
+      <div class="row">
+        <div class="col-md-3 mt-2" *ngFor="let item of employeeList">
+          <div class="card">
+            <!-- <div class="card-header text-center">
+                <mat-icon class="pull-right" (click)="openModal(employeeModal, 'edit', item)">edit</mat-icon>
+                <mat-icon class="pull-right" (click)="employeeAction(registerForm, 'delete', item.id)">restore_from_trash
+                </mat-icon>
+              <img class="card-img-top"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACmUlEQVR4nO2Zz4tNYRjH36khxZape57nXhakURRFdhY0FsQ/odTIRklZkFKSWFhI4TzPmaJuVsqGuJSdjRLJgrIwCd3zPGcGkV69Mxaaud3z3jP33PuOzreeOpvn/T6f933PeX8cYypVqlRIyHoISZ4g6Qyy2qEGuRqkhYkc7AkCWC4MvXjuHMBy3n8kAigYu0Sd5UA+iJtOARSLXUMee4BoNvxCNS/UZ2rZ5RCmAmG/ngKW78h6GxI9jJRtWdv8tGYsmV7tnpHlLLLOLoMRkRbemK11ax84nUDS+0jyK0gQIHndiO0q46n6lI4D6bvgQKI422N6VI1ld2Ag8sEUFLA8CwYEWLkoCJJeDAYESS8VBanHcjwgEDn3X4AAybWiIG43GxCI3isMQtIMCEQ+FqKwdgRYpoMBQVY7lmTreuVoxLq5qJ8pB0TumgLacd2uQJKXwYAA6ZUiIHN+JHeCAUGWp0VBgORVQCBqI9YjPRFYO4KsRwN7R3Qu6kl7gy9Hfaq9fSlepkwQoPSYLwiwnAgWBFnfjjftylyTlh1F0jchg1i3m/XwOL1UH1M+iHzz8NDgQYDlR64HyefgQZD0S56H25sFDwKkzz1G5EXoIF+B0p15Hu6iYqlXs6YcEPntNo55d1r/qhG317tzzHzukEGANUXWqzWWTaagoluyEVgvA2t74CDA+h6SbNJdhZo+ybUFSTbp2i4dxH1akfWUW5lNWWrZUYj15F+v/oO4I2mUzGwzA1JE2dZux+DcBtw60AHip8/XqN+KEtnV8bLbY61yi9XDDok3B1J5BwEpLepY0gf5iXG6f2FinbO9ZkjCJN23eIakE37J8z9kbIgBpGd66glHDSSP+rFT7UPx4mrxHolKlSqZhfoDyQt7+r2C35IAAAAASUVORK5CYII="
+                alt="Card image cap">
+            </div> -->
+            <div class="card-body">
+              <mat-icon class="pull-right" (click)="openModal(employeeModal, 'edit', item)">edit</mat-icon>
+              <mat-icon class="pull-right" (click)="employeeAction(registerForm, 'delete', item.id)">restore_from_trash
+              </mat-icon>
+              <p class="m-0"><strong class="card-title">{{item?.name}}</strong></p>
+              <div class="badge badge-info">{{item?.role}}</div>
+              <p class="card-text text-muted">From {{item?.fromDate | date: 'mediumDate'}}
+                -{{item?.toDate | date: 'mediumDate'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #employeeModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{selectedEmployeeDetails?.name ? 'Update': 'Add'}} Employee Details
+    </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form class="w-100" [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <mat-icon matPrefix>supervised_user_circle</mat-icon>
+            <input type="tel" formControlName="name" name="name" matInput placeholder="">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12 mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Select role</mat-label>
+            <mat-icon matPrefix>event_seat</mat-icon>
+            <mat-select formControlName="role" name="role">
+              <mat-option value="Junior Software Engineer">Junior Software Engineer</mat-option>
+              <mat-option value="Senior Software Engineer">Senior Software Engineer</mat-option>
+              <mat-option value="Senior Lead Software Engineer">Senior Lead Software Engineer</mat-option>
+              <mat-option value="Technology Lead">Technology Lead</mat-option>
+              <mat-option value="Project Manager">Project Manager</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12 mt-2 d-flex">
+          <mat-form-field>
+            <mat-label>From</mat-label>
+            <input readonly formControlName="fromDate" matInput [matDatepicker]="pickerFrom" [min]="minDate">
+            <mat-datepicker-toggle matIconPrefix [for]="pickerFrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFrom></mat-datepicker>
+          </mat-form-field>
+          <mat-icon class="mt-3">arrow_forward</mat-icon>
+          <mat-form-field>
+            <mat-label>To</mat-label>
+            <input readonly formControlName="toDate" matInput [matDatepicker]="pickerTo" [min]="minDate">
+            <mat-datepicker-toggle matIconPrefix [for]="pickerTo"></mat-datepicker-toggle>
+            <mat-datepicker #pickerTo></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12" *ngIf="!registerForm?.valid && registerForm.touched">
+          <p class="color-red">Please fill all the required fields*</p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="employeeAction(registerForm, 'update')"
+      *ngIf="selectedEmployeeDetails?.name">
+      <mat-icon class="color-white">save</mat-icon> Update
+    </button>
+    <button mat-raised-button color="primary" (click)="employeeAction(registerForm, 'add')"
+      *ngIf="!selectedEmployeeDetails?.name">
+      <mat-icon class="color-white">save</mat-icon> Save
+    </button>
+  </div>
+</ng-template>

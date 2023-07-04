@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'ngx-toastr/toastr';
+
+.mat-toolbar.mat-primary,
+.mat-mdc-raised-button.mat-primary, .mat-calendar-body-selected {
+  background-color: #1DA1F2 !important;
+}
+
+.cdk-overlay-container {
+  z-index: 9999;
+}
+
+mat-icon,
+.mat-mdc-icon-button svg {
+  color: #1DA1F2 !important;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.color-red {
+    color: red;
+}
